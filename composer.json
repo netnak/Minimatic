@@ -1,5 +1,5 @@
 {
-	"name": "netnak/phpinify",
+	"name": "netnak/minimatic",
 	"require": {
 		"voku/html-min": "^4.4",
 		"statamic/cms": "^4.0 || ^5.0"
@@ -7,17 +7,17 @@
 	"license": "MIT",
 	"autoload": {
 		"psr-4": {
-			"Netnak\\Phpinify\\": "src"
+			"Netnak\\Minimatic\\": "src"
 		}
 	},
 	"extra": {
 		"statamic": {
-			"name": "Phpinify",
-			"description": "Phpinify addon"
+			"name": "Minimatic",
+			"description": "Minifies HTML response and static files"
 		},
 		"laravel": {
 			"providers": [
-				"Netnak\\Phpinify\\ServiceProvider"
+				"Netnak\\Minimatic\\ServiceProvider"
 			]
 		}
 	}

@@ -1,13 +1,13 @@
 <?php
 
-namespace Netnak\Phpinify\Http\Middleware;
+namespace Netnak\Minimatic\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Netnak\Phpinify\Phpinify;
+use Netnak\Minimatic\Minimatic;
 
-class PhpinifyMiddleware
+class MinimaticMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class PhpinifyMiddleware
         
         $response = $next($request);
 
-        if (! config('phpinify.enable_response_minifier', false)) {
+        if (! config('minimatic.enable_response_minifier', false)) {
             return $response;
         }
 
@@ -32,7 +32,7 @@ class PhpinifyMiddleware
             $content = $response->getContent();
 
             if (! empty($content) && stripos($content, '<html') !== false) {
-                $minified = (new Phpinify($content))->getPhpinified();
+                $minified = (new Minimatic($content))->getPhpinified();
                 $response->setContent($minified);
             }
         }
@@ -47,7 +47,7 @@ class PhpinifyMiddleware
      */
     protected function shouldIgnore(Request $request): bool
     {
-        $ignored = config('phpinify.ignored_paths', ['!/*']);
+        $ignored = config('minimatic.ignored_paths', ['!/*']);
         foreach ($ignored as $pattern) {
             if ($request->is($pattern)) {
                 return true;

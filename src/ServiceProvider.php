@@ -1,24 +1,24 @@
 <?php
 
-namespace Netnak\Phpinify;
+namespace Netnak\Minimatic;
 
 use Statamic\Providers\AddonServiceProvider;
-use Netnak\Phpinify\Http\Middleware\PhpinifyMiddleware;
-use Netnak\Phpinify\Replacers\PhpinifyReplacer;
+use Netnak\Minimatic\Http\Middleware\MinimaticMiddleware;
+use Netnak\Minimatic\Replacers\MinimaticReplacer;
 
 class ServiceProvider extends AddonServiceProvider
 {
     /**
-     * Automatically merge/publish this config file under the 'phpinify' key.
+     * Automatically merge/publish this config file under the 'minimatic' key.
      */
-    protected $config = __DIR__ . '/../config/phpinify.php';
+    protected $config = __DIR__ . '/../config/minimatic.php';
 
     /**
      * Middleware applied to the 'web' group.
      */
     protected $middlewareGroups = [
         'web' => [
-            PhpinifyMiddleware::class,
+            MinimaticMiddleware::class,
         ],
     ];
 
@@ -28,14 +28,14 @@ class ServiceProvider extends AddonServiceProvider
      */
     public function bootAddon()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/phpinify.php', 'phpinify');
+        $this->mergeConfigFrom(__DIR__ . '/../config/minimatic.php', 'minimatic');
 
         $this->registerReplacer();
 
-        // php artisan vendor:publish --tag=phpinify-config --force  
+        // php artisan vendor:publish --tag=minimatic-config --force  
         $this->publishes([
-            __DIR__ . '/../config/phpinify.php' => config_path('phpinify.php'),
-        ], 'phpinify-config');
+            __DIR__ . '/../config/minimatic.php' => config_path('minimatic.php'),
+        ], 'minimatic-config');
     }
 
     /**
@@ -43,7 +43,7 @@ class ServiceProvider extends AddonServiceProvider
      */
     protected function registerReplacer()
     {
-        $enabled = config('phpinify.enable_static_cache_replacer', true);
+        $enabled = config('minimatic.enable_static_cache_replacer', true);
 
         if (! $enabled) {
             return;
@@ -51,8 +51,8 @@ class ServiceProvider extends AddonServiceProvider
 
         $replacers = config('statamic.static_caching.replacers', []);
 
-        if (!in_array(PhpinifyReplacer::class, $replacers)) {
-            $replacers[] = PhpinifyReplacer::class;
+        if (!in_array(MinimaticReplacer::class, $replacers)) {
+            $replacers[] = MinimaticReplacer::class;
             config(['statamic.static_caching.replacers' => $replacers]);
         }
     }

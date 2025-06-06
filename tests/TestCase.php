@@ -1,9 +1,9 @@
 <?php
 
-namespace Netnak\Phpinify\Tests;
+namespace Netnak\Minimatic\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Netnak\Phpinify\ServiceProvider;
+use Netnak\Minimatic\ServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -16,17 +16,17 @@ abstract class TestCase extends BaseTestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $configPath = realpath(__DIR__ . '/../config/phpinify.php');
+        $configPath = realpath(__DIR__ . '/../config/minimatic.php');
         $config = $configPath ? require $configPath : [];
 
        
-        // Merge the config file values into the app config under 'phpinify'
-        $app['config']->set('phpinify', $config);
+        // Merge the config file values into the app config under 'minimatic'
+        $app['config']->set('minimatic', $config);
 
         // Optionally override or add specific values here
        
-        $app['config']->set('phpinify.enable_response_minifier', true);
-        $app['config']->set('phpinify.enable_static_cache_replacer', true);
+        $app['config']->set('minimatic.enable_response_minifier', true);
+        $app['config']->set('minimatic.enable_static_cache_replacer', true);
     
 
     }

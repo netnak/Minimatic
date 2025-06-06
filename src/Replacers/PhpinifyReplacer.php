@@ -1,12 +1,12 @@
 <?php
 
-namespace Netnak\Phpinify\Replacers;
+namespace Netnak\Minimatic\Replacers;
 
 use Illuminate\Http\Response;
 use Statamic\StaticCaching\Replacer;
-use Netnak\Phpinify\Phpinify;
+use Netnak\Minimatic\Minimatic;
 
-class PhpinifyReplacer implements Replacer
+class MinimaticReplacer implements Replacer
 {
 	/**
 	 * Minify HTML content before writing to the static cache.
@@ -14,7 +14,7 @@ class PhpinifyReplacer implements Replacer
 	public function prepareResponseToCache(Response $response, Response $initial)
 	{
 		
-        if (! config('phpinify.enable_static_cache_replacer', false)) {
+        if (! config('minimatic.enable_static_cache_replacer', false)) {
 			return;
 		}
 
@@ -24,7 +24,7 @@ class PhpinifyReplacer implements Replacer
 			return;
 		}
 
-		$minifiedContent = (new Phpinify($content))->getPhpinified();
+		$minifiedContent = (new Minimatic($content))->getPhpinified();
 
 		$response->setContent($minifiedContent);
 	}

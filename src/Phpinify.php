@@ -1,10 +1,10 @@
 <?php
 
-namespace Netnak\Phpinify;
+namespace Netnak\Minimatic;
 
 use voku\helper\HtmlMin;
 
-class Phpinify
+class Minimatic
 {
     /**
      * The raw HTML to minify.
@@ -14,7 +14,7 @@ class Phpinify
     protected string $html;
 
     /**
-     * Create a new Phpinify instance.
+     * Create a new Minimatic instance.
      *
      * @param string $html
      */
@@ -32,7 +32,7 @@ class Phpinify
     {
         $htmlMin = new HtmlMin();
 
-        $configArr = config('phpinify.funcs', []);
+        $configArr = config('minimatic.funcs', []);
 
         // Apply each configured method dynamically to the HtmlMin object.
         foreach ($configArr as $method => $value) {

@@ -1,12 +1,12 @@
-# Phpinify
+# Minimatic
 
-> **Phpinify** is a Statamic addon that minifies HTML responses and/or static cached pages using [`voku/html-min`](https://github.com/voku/HtmlMin).
+> **Minimatic** is a Statamic addon that minifies HTML responses and/or static cached pages using [`voku/html-min`](https://github.com/voku/HtmlMin).
 
 ---
 
 ## 🚀 Features
 
-Phpinify wraps the powerful `HtmlMin` engine and exposes its configuration through a publishable config file. You can toggle the following features:
+Minimatic wraps the powerful `HtmlMin` engine and exposes its configuration through a publishable config file. You can toggle the following features:
 
 - `doOptimizeViaHtmlDomParser()` – optimize HTML using the DOM parser  
 - `doRemoveComments()` – remove HTML comments  
@@ -40,27 +40,27 @@ Phpinify wraps the powerful `HtmlMin` engine and exposes its configuration throu
 Install via Composer:
 
 ```bash
-composer require netnak/phpinify
+composer require netnak/minimatic
 ```
 
 Then publish the config file (optional):
 
 ```bash
-php artisan vendor:publish --tag=phpinify-config --force
+php artisan vendor:publish --tag=minimatic-config --force
 ```
 
 ---
 
 ## ⚙️ Configuration
 
-Phpinify auto-registers itself.
+Minimatic auto-registers itself.
 
 To manually ensure it's added as a static caching replacer, edit `config/statamic/static_caching.php`:
 
 ```php
 'replacers' => [
     // ...
-    \Netnak\Phpinify\Replacers\PhpinifyReplacer::class,
+    \Netnak\Minimatic\Replacers\MinimaticReplacer::class,
 ],
 ```
 
@@ -75,7 +75,7 @@ PHPINIFY_RESPONSE=true
 PHPINIFY_STATIC=true
 ```
 
-These values toggle options in `config/phpinify.php`:
+These values toggle options in `config/minimatic.php`:
 
 ```php
 'enable_response_minifier' => env('PHPINIFY_RESPONSE', false),

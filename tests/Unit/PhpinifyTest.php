@@ -1,11 +1,11 @@
 <?php
 
-namespace Netnak\Phpinify\Tests\Unit;
+namespace Netnak\Minimatic\Tests\Unit;
 
-use Netnak\Phpinify\Phpinify;
-use Netnak\Phpinify\Tests\TestCase;
+use Netnak\Minimatic\Minimatic;
+use Netnak\Minimatic\Tests\TestCase;
 
-class PhpinifyTest extends TestCase
+class MinimaticTest extends TestCase
 {
     public function test_minifies_html()
     {
@@ -18,8 +18,8 @@ class PhpinifyTest extends TestCase
 </html>
 HTML;
 
-        $phpinify = new Phpinify($html);
-        $minified = $phpinify->getPhpinified();
+        $minimatic = new Minimatic($html);
+        $minified = $minimatic->getPhpinified();
 
         // Comments removed
         $this->assertStringNotContainsString('<!--', $minified);

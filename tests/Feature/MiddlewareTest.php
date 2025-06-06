@@ -1,17 +1,17 @@
 <?php
 
-namespace Netnak\Phpinify\Tests\Feature;
+namespace Netnak\Minimatic\Tests\Feature;
 
 use Illuminate\Http\Request;
-use Netnak\Phpinify\Http\Middleware\PhpinifyMiddleware;
-use Netnak\Phpinify\Tests\TestCase;
+use Netnak\Minimatic\Http\Middleware\MinimaticMiddleware;
+use Netnak\Minimatic\Tests\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 class MiddlewareTest extends TestCase
 {
     public function test_middleware_minifies_html_response()
     {
-        $middleware = new PhpinifyMiddleware();
+        $middleware = new MinimaticMiddleware();
 
         $request = Request::create('/');
 
