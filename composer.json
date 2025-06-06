@@ -1,0 +1,24 @@
+{
+	"name": "netnak/phpinify",
+	"require": {
+		"voku/html-min": "^4.4",
+		"statamic/cms": "^4.0 || ^5.0"
+	},
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Netnak\\Phpinify\\": "src"
+		}
+	},
+	"extra": {
+		"statamic": {
+			"name": "Phpinify",
+			"description": "Phpinify addon"
+		},
+		"laravel": {
+			"providers": [
+				"Netnak\\Phpinify\\ServiceProvider"
+			]
+		}
+	}
+}
