@@ -33,9 +33,10 @@ class ServiceProvider extends AddonServiceProvider
         $this->registerReplacer();
 
         // php artisan vendor:publish --tag=minimatic-config --force  
-        $this->publishes([
-            __DIR__ . '/../config/minimatic.php' => config_path('minimatic.php'),
-        ], 'minimatic-config');
+        
+		//$this->publishes([
+        //   __DIR__ . '/../config/minimatic.php' => config_path('minimatic.php'),
+        //], 'minimatic-config');
     }
 
     /**
