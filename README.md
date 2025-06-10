@@ -71,15 +71,15 @@ To manually ensure it's added as a static caching replacer, edit `config/statami
 Enable minification via your `.env` file:
 
 ```env
-PHPINIFY_RESPONSE=true
-PHPINIFY_STATIC=true
+MINIFY_RESPONSE=true
+MINIFY_STATIC=true
 ```
 
 These values toggle options in `config/minimatic.php`:
 
 ```php
-'enable_response_minifier' => env('PHPINIFY_RESPONSE', false),
-'enable_static_cache_replacer' => env('PHPINIFY_STATIC', false),
+'enable_response_minifier' => env('MINIFY_RESPONSE', false),
+'enable_static_cache_replacer' => env('MINIFY_STATIC', false),
 ```
 
 Exclude paths from minification with:

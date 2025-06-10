@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'enable_response_minifier' => env('PHPINIFY_RESPONSE', false),
-    'enable_static_cache_replacer' => env('PHPINIFY_STATIC', false),
+    'enable_response_minifier' => env('MINIFY_RESPONSE', false),
+    'enable_static_cache_replacer' => env('MINIFY_STATIC', false),
     'ignored_paths' => ['!/*', 'api/*'],
     'funcs' => [					
         'doOptimizeViaHtmlDomParser' => true,            	// optimize html via "HtmlDomParser()"
