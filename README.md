@@ -53,9 +53,9 @@ php artisan vendor:publish --tag=minimatic-config --force
 
 ## ⚙️ Configuration
 
-Minimatic auto-registers itself.
+Minimatic auto-registers its own replacer at runtime.
 
-To manually ensure it's added as a static caching replacer, edit `config/statamic/static_caching.php`:
+However, if you want to manually ensure it's added as a static caching replacer, edit `config/statamic/static_caching.php`:
 
 ```php
 'replacers' => [
